@@ -56,7 +56,7 @@ const Testimonials = () => {
                 />
                 <h3 className="text-xl font-semibold mt-4">{testimonial.name}</h3>
                 <p className="text-gray-400 text-sm">{testimonial.designation}</p>
-                <p className="my-4 text-gray-300 italic">"{testimonial.review}"</p>
+                <p className="my-4 text-gray-300 italic">{testimonial.review}</p>
               </div>
             </SwiperSlide>
           ))}
