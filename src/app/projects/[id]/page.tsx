@@ -1,22 +1,25 @@
 "use client";
-import { useParams } from "next/navigation"; 
+import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import CryptoFleetImg from "../../../assets/cryptofleet.png"
+import CryptoFleetImg from "../../../assets/cryptofleet.png";
 import TechTsImage from "../../../assets/tech.ts-image.png";
 import GymImage from "../../../assets/gym-website.png";
-
-// import CryptoFleetImg from "../../assets/cryptofleet.png";
-// import TechTsImage from "../../assets/tech.ts.png";
-// import GymImage from "../../assets/gym-website.png"
 
 const projects = [
   {
     id: "cryptofleet",
     title: "CryptoFleet Exchange",
-    description: "A modern crypto exchange platform with real-time charts, seamless transactions, and enhanced security.",
-    image: {CryptoFleetImg},
-    techStack: ["Next.js", "Tailwind CSS", "GraphQL", "AWS Amplify", "Framer Motion"],
+    description:
+      "A modern crypto exchange platform with real-time charts, seamless transactions, and enhanced security.",
+    image: CryptoFleetImg, // ✅ Directly assigning the imported image
+    techStack: [
+      "Next.js",
+      "Tailwind CSS",
+      "GraphQL",
+      "AWS Amplify",
+      "Framer Motion",
+    ],
     features: [
       "Live Crypto Trading Charts",
       "Secure Transactions with Binance API",
@@ -29,7 +32,7 @@ const projects = [
     id: "tech-ts",
     title: "tech.ts Website development",
     description: "An AI-powered automated crypto trading bot...",
-    image: {TechTsImage},
+    image: TechTsImage, // ✅ Correct way
     techStack: ["Python", "TensorFlow", "FastAPI", "Binance API"],
     features: [
       "Automated Trading Strategies",
@@ -43,7 +46,7 @@ const projects = [
     id: "gym",
     title: "Gym Website development",
     description: "An AI-powered automated crypto trading bot...",
-    image: {GymImage},
+    image: GymImage, // ✅ Correct way
     techStack: ["Python", "TensorFlow", "FastAPI", "Binance API"],
     features: [
       "Automated Trading Strategies",
@@ -70,23 +73,38 @@ export default function ProjectPage() {
   return (
     <div className="min-h-screen bg-gray-900 text-white py-12 px-6">
       <div className="max-w-6xl mx-auto">
-        {/* Hero Section */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
           className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg"
         >
-          <Image src={project.image} alt={project.title} layout="fill" objectFit="cover" className="rounded-lg" />
+          <Image
+            src={project.image}
+            alt={project.title}
+            layout="fill"
+            objectFit="cover"
+            className="rounded-lg"
+          />
         </motion.div>
 
-        {/* Title */}
-        <h1 className="text-4xl font-bold text-orange-500 text-center mt-8">{project.title}</h1>
-        <p className="text-lg text-gray-300 text-center mt-4">{project.description}</p>
+        <h1 className="text-4xl font-bold text-orange-500 text-center mt-8">
+          {project.title}
+        </h1>
+        <p className="text-lg text-gray-300 text-center mt-4">
+          {project.description}
+        </p>
 
-        {/* Tech Stack */}
         <div className="mt-10">
-          <h2 className="text-2xl font-semibold text-orange-400 mb-4">Tech Stack Used</h2>
+          <h2 className="text-2xl font-semibold text-orange-400 mb-4">
+            Tech Stack Used
+          </h2>
           <div className="flex flex-wrap gap-3">
             {project.techStack.map((tech, index) => (
-              <span key={index} className="bg-gray-800 px-4 py-2 rounded-lg text-gray-300 text-sm shadow-md">
+              <span
+                key={index}
+                className="bg-gray-800 px-4 py-2 rounded-lg text-gray-300 text-sm shadow-md"
+              >
                 {tech}
               </span>
             ))}

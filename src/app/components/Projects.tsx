@@ -54,7 +54,6 @@
 //       githubUrl: "https://github.com/username/task-manager",
 //     },
 //   ];
-  
 
 // const Projects = () => {
 //   return (
@@ -115,45 +114,43 @@ import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import CryptoFleetImg from "../../assets/cryptofleet-img.png";
 import TechTsImage from "../../assets/tech.ts-image.png";
-import GymImage from "../../assets/gym-website.png"
-import HotelImg from "../../assets/hotel.png"
+import GymImage from "../../assets/gym-website.png";
+import HotelImg from "../../assets/hotel.png";
 
 const projects = [
-    {
-        id: "cryptofleet",
-        title: "CryptoFleet - Crypto Exchange Website",
-        description: "A Next.js & GraphQL powered crypto exchange platform.",
-        image: CryptoFleetImg,
-        startDate: "Apr 2024",
-        endDate: "Continue"
-    },
-    {
-      id: "tech-ts",
-      title: "Tech.ts - Website development",
-      description: "An online shopping website with payment integration.",
-      image: TechTsImage,
-      startDate: "march 2024",
-      endDate: "April 2024"
-    },
-    {
-      id: "gym",
-      title: "Gym - Website development",
-      description: "A personal portfolio showcasing projects and skills.",
-      image: GymImage,
-      startDate: "march 2024",
-      endDate: "April 2024"
-      
-    },
-    {
-      id: "hotel",
-      title: "Hotel - Website development",
-      description: "A simple expense tracker with charts and analytics.",
-      image: HotelImg,
-      startDate: "march 2024",
-      endDate: "April 2024"
-    },
-    
-  ];
+  {
+    id: "cryptofleet",
+    title: "CryptoFleet - Crypto Exchange Website",
+    description: "A Next.js & GraphQL powered crypto exchange platform.",
+    image: CryptoFleetImg,
+    startDate: "Apr 2024",
+    endDate: "Continue",
+  },
+  {
+    id: "tech-ts",
+    title: "Tech.ts - Website development",
+    description: "An online shopping website with payment integration.",
+    image: TechTsImage,
+    startDate: "march 2024",
+    endDate: "April 2024",
+  },
+  {
+    id: "gym",
+    title: "Gym - Website development",
+    description: "A personal portfolio showcasing projects and skills.",
+    image: GymImage,
+    startDate: "march 2024",
+    endDate: "April 2024",
+  },
+  {
+    id: "hotel",
+    title: "Hotel - Website development",
+    description: "A simple expense tracker with charts and analytics.",
+    image: HotelImg,
+    startDate: "march 2024",
+    endDate: "April 2024",
+  },
+];
 
 export default function Projects() {
   return (

@@ -12,7 +12,14 @@ interface ProjectProps {
   endDate: string;
 }
 
-export default function ProjectCard({ id, title, description, image, startDate, endDate }: ProjectProps) {
+export default function ProjectCard({
+  id,
+  title,
+  description,
+  image,
+  startDate,
+  endDate,
+}: ProjectProps) {
   return (
     <motion.div
       whileHover={{ scale: 1.05, translateY: -5 }}
@@ -22,7 +29,13 @@ export default function ProjectCard({ id, title, description, image, startDate, 
     >
       {/* Image */}
       <div className="relative w-full h-40 rounded-lg overflow-hidden shadow-md">
-        <Image src={image} alt={title} layout="fill" objectFit="cover" className="rounded-lg" />
+        <Image
+          src={image}
+          alt={title}
+          layout="fill"
+          objectFit="cover"
+          className="rounded-lg"
+        />
       </div>
 
       {/* Title */}
@@ -34,7 +47,9 @@ export default function ProjectCard({ id, title, description, image, startDate, 
       </p>
 
       {/* Description */}
-      <p className="text-gray-300 mt-2 text-sm leading-relaxed">{description}</p>
+      <p className="text-gray-300 mt-2 text-sm leading-relaxed">
+        {description}
+      </p>
 
       {/* Button */}
       <Link href={`/projects/${id}`}>
@@ -49,4 +64,3 @@ export default function ProjectCard({ id, title, description, image, startDate, 
     </motion.div>
   );
 }
-
