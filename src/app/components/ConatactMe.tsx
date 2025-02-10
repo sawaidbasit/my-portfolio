@@ -27,7 +27,7 @@ const ContactMe = () => {
 
         {/* Contact Info */}
         <div className="flex flex-col items-center mb-6">
-          <p className="text-gray-300">Let's connect! You can reach me via:</p>
+          <p className="text-gray-300">Let&apos;s connect! You can reach me via:</p>
           <div className="flex gap-6 mt-4">
             <a href="mailto:sawaid@example.com" className="text-orange-500 text-2xl hover:text-orange-400">
               <FaEnvelope />

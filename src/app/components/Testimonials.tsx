@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -48,7 +49,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id}>
               <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-                <img
+                <Image
                   src={testimonial.image}
                   alt={testimonial.name}
                   className="w-16 h-16 mx-auto rounded-full border-2 border-orange-500"
