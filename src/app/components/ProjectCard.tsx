@@ -47,19 +47,20 @@ export default function ProjectCard({
       </p>
 
       {/* Description */}
-      <p className="text-gray-300 mt-2 text-sm leading-relaxed">
-        {description}
+      <p
+        className="text-gray-300 mt-2 text-sm leading-relaxed"
+        title={description} // tooltip
+      >
+        {description.length > 150
+          ? `${description.slice(0, 150)}...`
+          : description}
       </p>
 
       {/* Button */}
       <Link href={`/projects/${id}`}>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          className="mt-4 w-full bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 
-          rounded-lg transition-all shadow-md hover:shadow-lg"
-        >
+        <button className="mt-4 text-sm bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded">
           View Details
-        </motion.button>
+        </button>
       </Link>
     </motion.div>
   );

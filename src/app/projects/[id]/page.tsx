@@ -1,115 +1,210 @@
 "use client";
-import { useParams } from "next/navigation";
-import { motion } from "framer-motion";
+import { notFound } from "next/navigation";
 import Image from "next/image";
-import CryptoFleetImg from "../../../assets/cryptofleet.png";
+import CryptoFleetImg from "../../../assets/cryptofleet-desktop.png";
 import TechTsImage from "../../../assets/tech.ts-image.png";
 import GymImage from "../../../assets/gym-website.png";
+import EkoFuelng from "../../../assets/ekofuelng.png";
+import CryptoFleetMobile from "../../../assets/cryptofleet-mobile.png";
+import CryptoFleetTablet from "../../../assets/cryptofleet-tablet.png";
 
 const projects = [
   {
     id: "cryptofleet",
-    title: "CryptoFleet Exchange",
-    description:
-      "A modern crypto exchange platform with real-time charts, seamless transactions, and enhanced security.",
-    image: CryptoFleetImg, // ✅ Directly assigning the imported image
-    techStack: [
-      "Next.js",
-      "Tailwind CSS",
-      "GraphQL",
-      "AWS Amplify",
-      "Framer Motion",
-    ],
+    title: "CryptoFleet – Crypto Trading Platform",
+    overview:
+      "Developed the frontend of a real-time crypto trading platform during my time at Panacloud Pvt Ltd, starting in April 2024. The platform delivers a seamless trading experience with live price tracking, secure trade execution, and interactive dashboards. Built using Next.js for SSR and performance, along with Tailwind CSS and Lightweight Charts for responsive and real-time UI. The project is live and continues to receive updates.",
     features: [
-      "Live Crypto Trading Charts",
-      "Secure Transactions with Binance API",
-      "Server-side Rendering for Performance",
-      "Fully Responsive UI",
-      "Dark Mode Integration",
+      "Live price tracking",
+      "Secure trading system",
+      "Authentication",
+      "Mobile responsive UI",
     ],
+    technologies: [
+      "Next.js",
+      "GraphQL",
+      "REST API",
+      "Tailwind CSS",
+      "Lightweight Charts",
+    ],
+    startDate: "April 2024",
+    endDate: "Continue",
+    url: "https://cryptofleet.com",
+    screenshots: {
+      mobile: [CryptoFleetMobile],
+      tablet: [CryptoFleetTablet],
+      desktop: [CryptoFleetImg],
+    },
   },
+
   {
     id: "tech-ts",
-    title: "tech.ts Website development",
-    description: "An AI-powered automated crypto trading bot...",
-    image: TechTsImage, // ✅ Correct way
-    techStack: ["Python", "TensorFlow", "FastAPI", "Binance API"],
+    title: "TechTs – Service Company Website",
+    overview:
+      "A freelance project for TechTs, a service-based company offering web and mobile development. Delivered a modern, responsive website with dedicated sections for services, company info, and contact. Focused on clean layout, brand consistency, and user-friendly interaction.",
     features: [
-      "Automated Trading Strategies",
-      "AI-Based Market Predictions",
-      "Real-Time Order Execution",
-      "Backtesting and Performance Analytics",
+      "Responsive design across all devices",
+      "Services and company overview sections",
+      "Interactive contact form",
+      "SEO-friendly static and dynamic pages",
     ],
-    skillsUsed: ["Machine Learning", "API Integration", "Algorithmic Trading"],
+    technologies: ["Next.js", "Tailwind CSS", "Mantine UI"],
+    startDate: "March 2024",
+    endDate: "April 2024",
+    url: "https://techts.com",
+    screenshots: {
+      mobile: [CryptoFleetMobile],
+      tablet: [CryptoFleetTablet],
+      desktop: [TechTsImage],
+    },
   },
   {
     id: "gym",
-    title: "Gym Website development",
-    description: "An AI-powered automated crypto trading bot...",
-    image: GymImage, // ✅ Correct way
-    techStack: ["Python", "TensorFlow", "FastAPI", "Binance API"],
+    title: "Gym Website – Fitness UI (Practice Project)",
+    overview:
+      "A self-initiated practice project to build a modern and responsive frontend for a fitness center. Showcases gym programs, personal trainers, and membership plans with smooth UI animations and device responsiveness.",
     features: [
-      "Automated Trading Strategies",
-      "AI-Based Market Predictions",
-      "Real-Time Order Execution",
-      "Backtesting and Performance Analytics",
+      "Hero section with call-to-action",
+      "List of programs and trainers",
+      "Responsive design across devices",
+      "Smooth scroll and UI animations",
     ],
-    skillsUsed: ["Machine Learning", "API Integration", "Algorithmic Trading"],
+    technologies: [
+      "Next.js",
+      "Tailwind CSS",
+      "Mantine UI",
+      "Embla Carousel (Autoplay)",
+      "Tabler Icons",
+    ],
+    startDate: "March 2024",
+    endDate: "April 2024",
+    url: "https://gymwebsite.com",
+    screenshots: {
+      mobile: [CryptoFleetMobile],
+      tablet: [CryptoFleetTablet],
+      desktop: [GymImage],
+    },
+  },
+  {
+    id: "ekofuelng",
+    title: "EkoFuelNG – Fuel Price Dashboard",
+    overview:
+      "A full-stack fuel price dashboard developed from scratch during my time at QF Network. The platform allows authorized clients to log in and submit up-to-date prices for petrol, diesel, and LPG. Public users can view fuel rates, while access to price submission is role-restricted through an admin panel.",
+    features: [
+      "Admin panel for fuel price submission",
+      "Public dashboard to view fuel rates",
+      "Role-based access control",
+      "Fully custom REST API",
+    ],
+    technologies: ["React.js", "Tailwind CSS", "NestJS", "NeonDB"],
+    startDate: "March 2024",
+    endDate: "April 2024",
+    url: "https://ekofuelng.com",
+    screenshots: {
+      mobile: [CryptoFleetMobile],
+      tablet: [CryptoFleetTablet],
+      desktop: [EkoFuelng],
+    },
   },
 ];
 
-export default function ProjectPage() {
-  const { id } = useParams();
-  const project = projects.find((p) => p.id === id);
+export default function ProjectDetails({ params }: { params: { id: string } }) {
+  const project = projects.find((p) => p.id === params.id);
+  if (!project) return notFound();
 
-  if (!project) {
-    return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white">
-        <h1 className="text-3xl font-semibold">Project Not Found</h1>
-      </div>
-    );
-  }
+  const {
+    title,
+    overview,
+    features,
+    technologies,
+    startDate,
+    endDate,
+    url,
+    screenshots,
+  } = project;
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white py-12 px-6">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg"
-        >
-          <Image
-            src={project.image}
-            alt={project.title}
-            layout="fill"
-            objectFit="cover"
-            className="rounded-lg"
-          />
-        </motion.div>
+    <div className="min-h-screen bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto space-y-12">
+        <div className="text-center">
+          <h1 className="text-4xl sm:text-5xl font-bold text-orange-500 mb-4">
+            {title}
+          </h1>
+          {url && (
+            <p className="text-lg text-blue-400">
+              Live:{" "}
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-blue-300 transition-colors duration-200"
+              >
+                {url}
+              </a>
+            </p>
+          )}
+        </div>
 
-        <h1 className="text-4xl font-bold text-orange-500 text-center mt-8">
-          {project.title}
-        </h1>
-        <p className="text-lg text-gray-300 text-center mt-4">
-          {project.description}
-        </p>
+        <section className="bg-gray-800 rounded-lg p-8 shadow-lg">
+          <h2 className="text-2xl font-semibold mb-4 text-orange-400">
+            Overview
+          </h2>
+          <p className="text-lg text-gray-200 leading-relaxed">{overview}</p>
+        </section>
 
-        <div className="mt-10">
-          <h2 className="text-2xl font-semibold text-orange-400 mb-4">
-            Tech Stack Used
+        <section className="bg-gray-800 rounded-lg p-8 shadow-lg">
+          <h2 className="text-2xl font-semibold mb-4 text-orange-400">
+            Key Features
+          </h2>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-200">
+            {features.map((feature, index) => (
+              <li key={index} className="flex items-start">
+                <span className="text-orange-500 mr-2">•</span>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="bg-gray-800 rounded-lg p-8 shadow-lg">
+          <h2 className="text-2xl font-semibold mb-4 text-orange-400">
+            Tech Stack
           </h2>
           <div className="flex flex-wrap gap-3">
-            {project.techStack.map((tech, index) => (
+            {technologies.map((tech, index) => (
               <span
                 key={index}
-                className="bg-gray-800 px-4 py-2 rounded-lg text-gray-300 text-sm shadow-md"
+                className="px-4 py-2 bg-orange-500 text-gray-900 rounded-full text-sm font-medium"
               >
                 {tech}
               </span>
             ))}
           </div>
-        </div>
+        </section>
+
+        <section className="bg-gray-800 rounded-lg p-8 shadow-lg">
+          <h2 className="text-2xl font-semibold mb-4 text-orange-400">
+            Duration
+          </h2>
+          <p className="text-lg text-gray-200">
+            {startDate} – {endDate}
+          </p>
+        </section>
+
+        <section className="bg-gray-800 rounded-lg p-8 shadow-lg">
+          <h2 className="text-3xl font-semibold mb-4 text-center text-orange-400">
+            Desktop Preview
+          </h2>
+          <div className="relative group overflow-hidden rounded-lg">
+            <Image
+              src={screenshots.desktop[0]}
+              alt="Desktop project preview"
+              className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300"></div>
+          </div>
+        </section>
       </div>
     </div>
   );
