@@ -8,6 +8,12 @@ import EkoFuelng from "../../../assets/ekofuelng.png";
 import CryptoFleetMobile from "../../../assets/cryptofleet-mobile.png";
 import CryptoFleetTablet from "../../../assets/cryptofleet-tablet.png";
 
+interface ProjectPageProps {
+  params: {
+    id: string;
+  };
+}
+
 const projects = [
   {
     id: "cryptofleet",
@@ -108,7 +114,7 @@ const projects = [
   },
 ];
 
-export default function ProjectDetails({ params }: { params: { id: string } }) {
+export default function ProjectDetails({ params }: ProjectPageProps) {
   const project = projects.find((p) => p.id === params.id);
   if (!project) return notFound();
 
