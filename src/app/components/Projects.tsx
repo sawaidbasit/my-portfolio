@@ -4,7 +4,6 @@ import ProjectCard from "./ProjectCard";
 import CryptoFleetImg from "../../assets/cryptofleet-desktop.png";
 import TechTsImage from "../../assets/tech.ts-image.png";
 import GymImage from "../../assets/gym-website.png";
-import HotelImg from "../../assets/hotel.png";
 import EkoFuelng from "../../assets/ekofuelng.png";
 
 const projects = [

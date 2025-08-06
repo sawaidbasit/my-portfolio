@@ -50,7 +50,7 @@ const Testimonials = () => {
                   {testimonial.designation}
                 </p>
                 <p className="my-4 text-gray-300 italic">
-                  "{testimonial.review}"
+                  &quot;{testimonial.review}&quot;
                 </p>
               </div>
             </SwiperSlide>
